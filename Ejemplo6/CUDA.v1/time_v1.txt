@@ -1,0 +1,27 @@
+./exec n (by default n=4096)
+Transpose version 1D: 524.383849 MB/s
+==12393== NVPROF is profiling process 12393, command: ./transpose
+Transpose kernel version: 2762.073281 MB/s
+==12393== Profiling application: ./transpose
+==12393== Profiling result:
+Time(%)      Time     Calls       Avg       Min       Max  Name
+ 38.28%  12.771ms         1  12.771ms  12.771ms  12.771ms  transpose_device_2D(float*, float*, int, int)
+ 30.94%  10.322ms         1  10.322ms  10.322ms  10.322ms  [CUDA memcpy HtoD]
+ 30.78%  10.271ms         1  10.271ms  10.271ms  10.271ms  [CUDA memcpy DtoH]
+
+==12393== API calls:
+Time(%)      Time     Calls       Avg       Min       Max  Name
+ 51.44%  35.677ms         2  17.838ms  195.19us  35.482ms  cudaMalloc
+ 48.10%  33.364ms         2  16.682ms  10.217ms  23.147ms  cudaMemcpy
+  0.36%  246.45us        83  2.9690us      87ns  108.57us  cuDeviceGetAttribute
+  0.04%  27.678us         1  27.678us  27.678us  27.678us  cuDeviceTotalMem
+  0.04%  24.576us         1  24.576us  24.576us  24.576us  cuDeviceGetName
+  0.02%  15.107us         1  15.107us  15.107us  15.107us  cudaLaunch
+  0.00%  2.8820us         4     720ns     136ns  2.2000us  cudaSetupArgument
+  0.00%  2.6800us         1  2.6800us  2.6800us  2.6800us  cudaThreadSynchronize
+  0.00%     880ns         2     440ns     149ns     731ns  cuDeviceGetCount
+  0.00%     594ns         1     594ns     594ns     594ns  cudaConfigureCall
+  0.00%     303ns         2     151ns      98ns     205ns  cuDeviceGet
+
+
+
